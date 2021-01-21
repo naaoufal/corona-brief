@@ -1,0 +1,21 @@
+{
+  "name": "corona",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Naoufal",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^11.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "jest-fetch-mock": "^3.0.3",
+    "jquery.pep.js": "^0.6.10"
+  }
+}

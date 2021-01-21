@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Doctors Manage :</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Admin Page :</h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Add New</button><br>
+            <br><p class="parag">Here u will found all the doctors in our hospital ...</p>
+            <br>
+            <table id="tabletable" class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Last</th>
+                    <th>First</th>
+                    <th>CIN</th>
+                    <th>Phone Number</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="fetchtable">
+                </tbody>
+          </table>
+        </div>
+      <!-- button for deconnection !!! -->
+      <a class="btn btn-info" href="index.html">Deconnecter</a>
+    </div>
+
+    <!-- modal for Add new Doctors  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New Doctor :</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="form-class">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Last Name :</label>
+                <input type="text" class="form-control" id="last">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">First Name :</label>
+                <input type="text" class="form-control" id="first">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">CIN :</label>
+                <input type="text" class="form-control" id="cin">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Phone Number :</label>
+                <input type="text" class="form-control" id="phone">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Password :</label>
+                <input type="password" class="form-control" id="pass">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Email :</label>
+                <input type="text" class="form-control" id="email">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add New</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal for Edit doctors -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Edit a Doctor :</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form action="">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="" class="col-form-label">Last Name :</label>
+                <input type="text" class="form-control" id="ls">
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">First Name :</label>
+                <input type="text" class="form-control" id="fr">
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">CIN :</label>
+                <input type="text" class="form-control" id="cin_edit">
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">Phone Number :</label>
+                <input type="text" class="form-control" id="pn">
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">Password :</label>
+                <input type="text" class="form-control" id="ps">
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">Email :</label>
+                <input type="text" class="form-control" id="em">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="submitEdit" class="btn btn-primary">Save changes</button>
+              </div>
+           </form>
+          </div>
+        </div>
+    </div>
+  </div>
+    
+</body>
+<script>window.$ = window.jQuery = require('jquery');</script>
+<script src="./scripts/admin/back.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>
