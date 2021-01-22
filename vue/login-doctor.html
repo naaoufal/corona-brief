@@ -7,25 +7,24 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
-      #test{
+        #test{
             margin : 10px;
-            padding-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="col-md-4">
-            <h1>Admin Login</h1>
+            <h1>Doctor Login</h1>
             <!-- Email input -->
             <div class="form-outline mb-4">
               <label class="form-label" for="">User Name :</label>
-              <input type="text" id="user" class="form-control" required/>
+              <input type="text" id="user" class="form-control" required />
             </div>
             <!-- Password input -->
             <div class="form-outline mb-4">
               <label class="form-label" for="">Password :</label>
-              <input type="password" id="pass" class="form-control" required/>
+              <input type="password" id="pass" class="form-control" required />
             </div>
             <br>
             <!-- 2 column grid layout for inline styling -->
@@ -34,17 +33,17 @@
                 <!-- Checkbox -->
                 <div id="error"></div>
                 <div class="form-check">
-                  <a id="test" href="login-doctor.html">Doctor Login Here !!!</a>
+                  <a id="test" href="index.html">Admin Login Here !!!</a>
                 </div>
               </div>
             </div>
             <!-- Submit button -->
-            <button onclick="LogIn()" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" onclick="testLogin()" class="btn btn-primary btn-block">Login</button>
         </div>
     </div>
 </body>
   <script>window.$ = window.jQuery = require('jquery');</script>
-  <script src="./scripts/admin/script1.js"></script>
+  <script src="./scripts/admin/login.js"></script>
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->

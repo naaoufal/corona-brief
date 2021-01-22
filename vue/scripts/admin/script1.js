@@ -1,6 +1,16 @@
 var remote = window.require('electron').remote;
 
 
+function clearInput (){
+
+    var userInp = document.getElementById('user');
+    var passInp = document.getElementById('pass'); 
+
+    userInp.value = "";
+    passInp.value = "";
+
+}
+
 // import("./.env");
 
 username = document.getElementById('user');
@@ -24,9 +34,18 @@ function LogIn() {
         document.write("You Will redirecte into 3 sec");
         setTimeout('Redirect()', 3000);
     } else {
-        alert('the username or password are inccorect !!!');
-        window.location.href = "index.html";
-        document.write("You Will Redirecte Into 3 sec");
-        setTimeout('Redirect()', 3000);
+        var html = `
+            <div class="panel panel-danger">
+                <div class="panel-heading">Erreur</div>
+                <div class="panel-body">Username Or Password is Incorrect</div>
+            </div>
+        `;
+        const err = document.querySelector('#error');
+        err.innerHTML = html;
+                
+        //document.write("You Will Redirecte Into 3 sec");
+        //setTimeout('Redirect()', 1000);
+
+        clearInput();
     }
 }
