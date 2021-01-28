@@ -12,26 +12,23 @@ function fetchData() {
         return res.json();
     }).then( data => {
         console.log(data);
-        const html = data.map(doctor => {
-            return `
-                <tbody>
-                  <tr>
-                    <td>${doctor.id}</td>
-                    <td class="last-Doc">${doctor.lastname}</td>
-                    <td class="firstDoc">${doctor.firstname}</td>
-                    <td class="cinDoc">${doctor.cin}</td>
-                    <td class="phoneDoc">${doctor.phonenumber}</td>
-                    <td class="passDoc">${doctor.password}</td>
-                    <td class="emailDoc">${doctor.email}</td>
-                    <td>
-                        <a data-id=${doctor.id} data-toggle="modal" data-target="#exampleModalCenter" id="edit-class" class="btn btn-primary">Edit</a> 
-                        <a data-id=${doctor.id} id="delete-class" class="btn btn-danger">Delete</a>
-                    </td>
-                  </tr>
-                </tbody>
-            `;
+        data.map(doctor => {
+            $('#fetchtable').append(`
+              <tr>
+                <td>${doctor.id}</td>
+                <td class="last-Doc">${doctor.lastname}</td>
+                <td class="firstDoc">${doctor.firstname}</td>
+                <td class="cinDoc">${doctor.cin}</td>
+                <td class="phoneDoc">${doctor.phonenumber}</td>
+                <td class="passDoc">${doctor.password}</td>
+                <td class="emailDoc">${doctor.email}</td>
+                <td>
+                    <a data-id=${doctor.id} data-toggle="modal" data-target="#exampleModalCenter" id="edit-class" class="btn btn-primary">Edit</a> 
+                    <a data-id=${doctor.id} id="delete-class" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+        `)
         }).join();
-        tbodyTable.innerHTML = html;
     }).catch(error => {
         console.log(error);
     });

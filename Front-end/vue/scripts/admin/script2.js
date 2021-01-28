@@ -5,6 +5,7 @@ const tbodyTable = document.querySelector('#coronaStat');
 const formCountries = document.querySelector('#countries');
 // const graphBtn = document.querySelector('#graphShow');
 const showGraphCountries = document.querySelector('#showCountries');
+const mapping = document.querySelector('#mapp');
 
 
 function fetchData() {
@@ -115,13 +116,15 @@ $("#countries").click(function() {
         var arrDeaths = [];
         var arrRecovred = [];
         var arrDates = [];
-        const html = data.slice(0, 100).map(country => {
+        data.slice(0, 90).map(country => {
             arrActive.push(country.Active);
             arrConfirmed.push(country.Confirmed);
             arrDeaths.push(country.Deaths);
             arrRecovred.push(country.Recovered);
             arrDates.push(country.Date);
-
+            // show map of each country:
+            var html1 = `<iframe src="http://maps.google.com/maps?q=${data[0].Lat},${data[0].Lon}&z=16&output=embed" style="width:100%;height:578px;" id="frame"></iframe>`;
+            mapping.innerHTML = html1;
             // draw a graph for each counrty :
             var mychart = document.getElementById('myChart1').getContext('2d');
             var chart = new Chart(mychart, {
@@ -158,21 +161,16 @@ $("#countries").click(function() {
                 option : {}
             })
             
-            return `
-                <tbody>
-                    <tr>
-                        <td>${country.Country}</td>
-                        <td>${country.CountryCode}</td>
-                        <td>${country.Confirmed}</td>
-                        <td>${country.Deaths}</td>
-                        <td>${country.Recovered}</td>
-                        <td id="allDates">${country.Date}</td>
-                    </tr>
-                </tbody>
-            `;
+            $('#dataCountry').append(`
+                <tr>
+                    <td id="name">${country.Country}</td>
+                    <td>${country.CountryCode}</td>
+                    <td>${country.Confirmed}</td>
+                    <td>${country.Deaths}</td>
+                    <td>${country.Recovered}</td>
+                    <td id="allDates">${country.Date}</td>
+                </tr>
+        `)
         }).join();
-        countryStat.innerHTML = html;
     });
-
-    //console.log(document.getElementById('allDates'));
 });

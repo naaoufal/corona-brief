@@ -8,14 +8,17 @@
     "start": "electron ."
   },
   "keywords": [],
-  "author": "Naoufal",
+  "author": "Naoufal, Hanane, Sara and Sketch",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^11.2.0"
+    "electron": "^11.2.1"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
     "jest-fetch-mock": "^3.0.3",
-    "jquery.pep.js": "^0.6.10"
+    "jquery.pep.js": "^0.6.10",
+    "mongoose": "^5.11.13",
+    "nodemailer": "^6.4.17",
+    "pdfkit": "^0.11.0"
   }
 }

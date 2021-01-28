@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Patients Management :</title>
+</head>
+<body onload="getData()">
+    <div class="container">
+        <div class="row">
+            <h1>Patients page :</h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Add New</button>
+            <a href="doctors.html"><button class="btn btn-light" id="btn" href="">Dashboard</button></a><br>
+            <br><p class="parag">Here u will found all patients in our hospital ...</p>
+            <br>
+            <table id="tabletable" class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Last name</th>
+                    <th>First name</th>
+                    <th>CIN</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                    <th>Test</th>
+                  </tr>
+                </thead>
+                <tbody id="fetchtable">
+                  
+                </tbody>
+          </table>
+        </div>
+      
+    </div>
+
+    <!-- modal for Add new patient  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New patient :</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="form-class">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">First Name :</label>
+                <input type="text" class="form-control" id="fname" required>
+                <p style="color : red;" id="fnameval">*Required</p>
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Last Name :</label>
+                <input type="text" class="form-control" id="lname" required>
+                <p style="color : red;" id="lnameval">*Required</p>
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">CIN :</label>
+                <input type="text" class="form-control" id="cin" required>
+                <p style="color : red;" id="cinval">*Required</p>
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Phone Number :</label>
+                <input type="text" class="form-control" id="phone" required>
+                <p style="color : red;" id="phoneval">*Required</p>
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Email :</label>
+                <input type="text" class="form-control" id="email" required>
+                <p style="color : red;" id="emailval">*Required</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" onclick="add(event)">Add New</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal for Edit patients -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Edit a patient :</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form action="">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="" class="col-form-label">Last Name :</label>
+                <input type="text" class="form-control" id="elname">
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">First Name :</label>
+                <input type="text" class="form-control" id="efname">
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">CIN :</label>
+                <input type="text" class="form-control" id="ecin">
+
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">Phone Number :</label>
+                <input type="text" class="form-control" id="ephone">
+              </div>
+              <div class="form-group">
+                <label for="" class="col-form-label">Email :</label>
+                <input type="text" class="form-control" id="eemail">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="submitEdit" class="btn btn-primary">Save changes</button>
+              </div>
+           </form>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- modal for Edit patients -->
+  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Survey : <h5 id="idNum"></h5></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form class="form-class">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Les symptômes</th>
+              <th scope="col">Oui/non ?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fièvre (Température mesurée>38°)</td>
+              <td><input type="checkbox" id="r1"></td>
+            </tr>
+            <tr>
+              <td>Toux sèche</td>
+              <td><input type="checkbox" id="r2"></td>
+            </tr>
+            <tr>
+              <td>Difficultés à respirer</td>
+              <td><input type="checkbox" id="r3"></td>
+            </tr>
+            <tr>
+              <td>Maux gorge</td>
+              <td><input type="checkbox" id="r4"></td>
+            </tr>
+            <tr>
+              <td>Rhinite</td>
+              <td><input type="checkbox" id="r5"></td>
+            </tr>
+            <tr>
+              <td>Douleur dans les muscles(Corbatures)</td>
+              <td><input type="checkbox" id="r6"></td>
+            </tr>
+            <tr>
+              <td>Fatigue importante</td>
+              <td><input type="checkbox" id="r7"></td>
+            </tr>
+            <tr>
+              <td>Maux de téte</td>
+              <td><input type="checkbox" id="r8"></td>
+            </tr>
+            <tr>
+              <td>Diarrhées</td>
+              <td><input type="checkbox" id="r9"></td>
+            </tr>
+            <tr>
+              <td>Nausées et/ou Vomissements</td>
+              <td><input type="checkbox" id="r10"></td>
+            </tr>
+            <tr>
+              <td>Ansomie(perte de l'odorat)</td>
+              <td><input type="checkbox" id="r11"></td>
+            </tr>
+            <tr>
+              <td>Agueusie(perte de gout)</td>
+              <td><input type="checkbox" id="r12"></td>
+            </tr>
+
+            <tr>
+              <td style="color : red;">Resultat du test :</td>
+              <td>
+                  <select name="" id="testResult">
+                    <option value="Positive" style="color : red;">Positive</option>
+                    <option value="Negative" style="color : green;">Negative</option>
+                  </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" id="validatebutton" >
+               <center>
+                  <button type="button" id="submitSurvey" class="btn btn-primary" >Valider</button>
+               </center>
+              </td>
+            </tr>
+            <tr id="survey-add-success">
+             
+            </tr>
+          </tbody>
+        </table>
+      </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+</body>
+<script>window.$ = window.jQuery = require('jquery');</script>
+<script src="scripts/patient/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>

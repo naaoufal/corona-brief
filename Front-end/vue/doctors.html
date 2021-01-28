@@ -41,7 +41,7 @@
       <!-- button for deconnection !!! -->
       <a id="btn" class="btn btn-info" href="login-doctor.html">Deconnecter</a>
       <button id="showCountries" class="btn btn-default">All Data by Countries</button>
-      <button class="btn btn-light" id="btn">botona dyal daif</button><br>
+      <a href="folder.html"><button class="btn btn-light" id="btn" href="">View Patients</button></a><br>
       <table id="tabletable" class="table table-striped table-bordered">
         <thead>
           <tr>
@@ -63,13 +63,16 @@
         <center>
           <h4>Display Data By Each Country :</h4>
           <button onclick="fetchCountries()" class="btn btn-light" id="loadCount">Load Countries</button>
-          
           <select name="" id="countries">
             <option id="test"> Select Your Country </option>
           </select>
+          <br>
+          <input type="date" placeholder="Specify Your Start Date">
+          <input type="date" placeholder="Specify Your End Date">
         </center>
         <br>
-        <canvas id="myChart1"></canvas>
+        <canvas id="myChart1"></canvas><br>
+        <div id="mapp" class="mapp"></div>
         <br>
         <table id="tableCountry" class="table table-striped table-bordered">
           <thead>
@@ -92,6 +95,7 @@
 </body>
   <script>window.$ = window.jQuery = require('jquery');</script>
   <script src="./scripts/admin/script2.js"></script>
+  <script src="scripts/admin/cal.js"></script>
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
